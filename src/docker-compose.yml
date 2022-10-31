@@ -10,7 +10,18 @@ services:
     build:
       context: .
       dockerfile: Services/Articles/Articles.API/Dockerfile
+      
 
+  usermongodb:
+    image: mongo
+
+  users.api:
+    image: ${DOCKER_REGISTRY-}usersapi
+    build:
+      context: .
+      dockerfile: Services/Users/Users.API/Dockerfile
 
 volumes:
   mongo_data:
+  user_mongo_data:
+

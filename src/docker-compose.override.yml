@@ -19,3 +19,22 @@ services:
       - articlemongodb
     ports:
       - "8000:80"
+
+  usermongodb:
+    container_name : usermongodb
+    restart: always
+    ports:
+      - "27018:27017"
+    volumes:
+      - user_mongo_data:/data/db
+
+  users.api:
+    container_name : users.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "MongoSettings:ConnectionString=mongodb://usermongodb:27017"
+    depends_on:
+      - usermongodb
+    ports:
+      - "8500:80"
+

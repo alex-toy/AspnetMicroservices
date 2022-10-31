@@ -51,10 +51,10 @@ namespace Articles.API.Repositories
             return await _context.Articles.Find(filter).ToListAsync();
         }
 
-        public async Task<bool> Update(Article product)
+        public async Task<bool> Update(Article article)
         {
             var updateResult = await _context.Articles
-                                        .ReplaceOneAsync(filter: g => g.Id == product.Id, replacement: product);
+                                        .ReplaceOneAsync(filter: g => g.Id == article.Id, replacement: article);
 
             return updateResult.IsAcknowledged && updateResult.ModifiedCount > 0;
         }

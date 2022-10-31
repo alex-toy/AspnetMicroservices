@@ -3,7 +3,11 @@ C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Articles.API.runtimeconfig.js
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\appsettings.Development.json
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\appsettings.json
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Articles.API.exe
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Users.API.deps.json
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Users.API.runtimeconfig.json
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Users.API.exe
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Articles.API.dll
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Users.API.dll
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\MongoDB.Driver.dll
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\MongoDB.Bson.dll
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -17,6 +21,7 @@ C:\source\Csharp\AspnetMicroservices\src\bin\Debug\SharpCompress.dll
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\ZstdSharp.dll
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Snappier.dll
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Articles.API.pdb
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Users.API.pdb
 C:\source\Csharp\AspnetMicroservices\src\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\source\Csharp\AspnetMicroservices\src\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\source\Csharp\AspnetMicroservices\src\obj\Debug\docker-compose.dcproj.CopyComplete

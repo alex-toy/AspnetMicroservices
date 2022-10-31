@@ -1,0 +1,28 @@
+docker exec -it users-mongo /bin/bash
+
+
+ls
+mongo
+show dbs
+use UsersDb
+db.createCollection('Users')
+
+db.Users.insertMany(
+			[
+			    {
+			        "FirstName": "Alex",
+			        "LastName": "Reaktor",
+			        "Email": "alex@test.fr",
+			    },
+			    {
+			        "FirstName": "Shirley",
+			        "LastName": "Lozano",
+			        "Email": "shirley@test.fr",
+			    }
+			])
+
+db.Users.find({}).pretty()
+db.Users.remove({})
+
+show databases
+show collections

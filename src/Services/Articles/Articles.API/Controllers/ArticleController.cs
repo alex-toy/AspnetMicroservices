@@ -34,7 +34,7 @@ namespace Articles.API.Controllers
             var articles = await _repository.Get(id);
             if (articles == null)
             {
-                _logger.LogError($"Product with id: {id}, not found.");
+                _logger.LogError($"Article with id: {id}, not found.");
                 return NotFound();
             }
             return Ok(articles);
@@ -64,7 +64,7 @@ namespace Articles.API.Controllers
         {
             await _repository.Create(article);
 
-            return CreatedAtRoute("GetProduct", new { id = article.Id }, article);
+            return CreatedAtRoute("GetArticle", new { id = article.Id }, article);
         }
 
         [HttpPut]
