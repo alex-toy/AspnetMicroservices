@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+
+  articlemongodb:
+    image: mongo
+
+  articles.api:
+    image: ${DOCKER_REGISTRY-}articlesapi
+    build:
+      context: .
+      dockerfile: Services/Articles/Articles.API/Dockerfile
+
+
+volumes:
+  mongo_data:

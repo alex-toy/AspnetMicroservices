@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+
+  articlemongodb:
+    container_name : articlemongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  articles.api:
+    container_name : articles.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "MongoSettings:ConnectionString=mongodb://articlemongodb:27017"
+    depends_on:
+      - articlemongodb
+    ports:
+      - "8000:80"

@@ -1,0 +1,34 @@
+docker exec -it articles-mongo /bin/bash
+
+
+ls
+mongo
+show dbs
+use ArticleDb  --> for create db on mongo
+db.createCollection('Articles')  --> for create people collection
+
+db.Articles.insertMany(
+			[
+			    {
+			        "Name": "Asus Laptop",
+			        "Category": "Computers",
+			        "Summary": "Summary",
+			        "Description": "Description",
+			        "ImageFile": "ImageFile",
+			        "Price": 54.93
+			    },
+			    {
+			        "Name": "HP Laptop",
+			        "Category": "Computers",
+			        "Summary": "Summary",
+			        "Description": "Description",
+			        "ImageFile": "ImageFile",
+			        "Price": 88.93
+			    }
+			])
+
+db.Articles.find({}).pretty()
+db.Articles.remove({})
+
+show databases
+show collections

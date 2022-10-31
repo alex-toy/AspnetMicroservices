@@ -1,0 +1,24 @@
+services:
+  articledb:
+    container_name: articledb
+    image: mongo
+    ports:
+    - published: 27017
+      target: 27017
+    restart: always
+    volumes:
+    - mongo_data:/data/db:rw
+  articles.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Articles/Articles.API/Dockerfile
+    container_name: articles.api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      MongoSettings:ConnectionString: mongodb://articledb:27017
+    image: articlesapi
+    ports:
+    - target: 80
+version: '3.4'
+volumes:
+  mongo_data: {}
