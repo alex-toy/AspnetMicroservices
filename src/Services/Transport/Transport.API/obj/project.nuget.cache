@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cnk+A8IGveD2Cmk6KpJCwIwBJVDu6ZXVMRUawx0xeZtCKaNmVEirzJO9HPyxLFLsEjbX68oSmCI4HBWJN1fvIQ==",
+  "dgSpecHash": "EA43CJPWbUIvAhBP/bx7y7Rw38iY8mHcgnYf+V1BuCbLRZ4Fa+ZWTxEkVm5GmwQ1o91VCi2yQJJeZH2LvjG08A==",
   "success": true,
   "projectFilePath": "C:\\source\\Csharp\\AspnetMicroservices\\src\\Services\\Transport\\Transport.API\\Transport.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alexe\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\6.0.10\\microsoft.extensions.caching.stackexchangeredis.6.0.10.nupkg.sha512",
@@ -16,6 +17,7 @@
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\alexe\\.nuget\\packages\\npgsql\\6.0.7\\npgsql.6.0.7.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.0\\pipelines.sockets.unofficial.2.2.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\stackexchange.redis\\2.2.4\\stackexchange.redis.2.2.4.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

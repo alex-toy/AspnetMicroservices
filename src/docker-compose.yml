@@ -45,11 +45,26 @@ services:
       context: .
       dockerfile: Services/Transport/Transport.API/Dockerfile
 
+      
+  vehicledb:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+  vehicles.api:
+    image: ${DOCKER_REGISTRY-}vehicleapi
+    build:
+      context: .
+      dockerfile: Services/Vehicles/Vehicles.API/Dockerfile
+
 
 volumes:
   mongo_data:
   user_mongo_data:
   portainer_data:
+  postgres_data:
+  pgadmin_data:
 
 
 

@@ -40,3 +40,10 @@ C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.runtimeconfig.j
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.exe
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.dll
 C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.pdb
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Vehicles.API.deps.json
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Vehicles.API.runtimeconfig.json
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Vehicles.API.exe
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Vehicles.API.dll
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Npgsql.dll
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Dapper.dll
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Vehicles.API.pdb

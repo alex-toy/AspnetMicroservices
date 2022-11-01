@@ -42,3 +42,5 @@ C:\source\Csharp\AspnetMicroservices\src\Services\Transport\Transport.API\obj\De
 C:\source\Csharp\AspnetMicroservices\src\Services\Transport\Transport.API\obj\Debug\net6.0\Transport.API.pdb
 C:\source\Csharp\AspnetMicroservices\src\Services\Transport\Transport.API\obj\Debug\net6.0\Transport.API.genruntimeconfig.cache
 C:\source\Csharp\AspnetMicroservices\src\Services\Transport\Transport.API\obj\Debug\net6.0\ref\Transport.API.dll
+C:\source\Csharp\AspnetMicroservices\src\Services\Transport\Transport.API\bin\Debug\net6.0\Dapper.dll
+C:\source\Csharp\AspnetMicroservices\src\Services\Transport\Transport.API\bin\Debug\net6.0\Npgsql.dll

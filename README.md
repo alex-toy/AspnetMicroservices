@@ -5,6 +5,7 @@
     - stop all containers :     docker stop $(docker ps -aq)
     - remove all containers :   docker rm $(docker ps -aq)
     - remove all images :       docker rmi $(docker images -q)
+    - remove all volumes :      docker volume prune
     - in case it was up :       docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
 
 
@@ -200,5 +201,104 @@ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 - go to *Transport.API* : http://localhost:8501/swagger/index.html
 
 <img src="/pictures/transport.png" title="transport local"  width="800">
+
+
+
+## Vehicles.API with PostgreSQL
+
+### Packages
+
+1. Package Manager Command in **Vehicles.API**
+```
+Install-Package Npgsql 
+Install-Package Dapper 
+Update-Package -ProjectName Vehicles.API
+```
+
+2. **Postgres** Database : 
+- Hit **Docker Compose** or run :
+```
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+```
+- go to **portainer** : http://localhost:9000
+
+<img src="/pictures/portainer_vehicle.png" title="portainer vehicle"  width="800">
+
+- go to **pgadmin** : http://localhost:5050
+
+<img src="/pictures/pgadmin.png" title="pgadmin"  width="800">
+
+- click **Add New Server** and add *VehicleServer*, *VehicleDb*, username and password
+
+<img src="/pictures/pgadmin1.png" title="pgadmin"  width="300">
+<img src="/pictures/pgadmin2.png" title="pgadmin"  width="300">
+
+- You should now see a successfully created database :
+
+<img src="/pictures/pgadmin3.png" title="pgadmin"  width="800">
+
+- Inside the *pgadmin* portal, *Tools/Query Tool*, create new tables with the help of *vehicle.sql*, the add some data :
+
+<img src="/pictures/pgadmin4.png" title="pgadmin"  width="400">
+<img src="/pictures/pgadmin5.png" title="pgadmin"  width="400">
+
+### Deployment
+
+1. Run *Vehicles.API* microservice **locally**
+- In *appsettings.Development.json*, set : "ConnectionString" : "localhost:5432"
+- Hit **Vehicles.API**
+
+2. Run *Vehicles.API* microservice **containerized**
+
+- In *appsettings.Development.json*, set : "ConnectionString" : "vehicledb:5432"
+- Hit **Docker Compose** or run :
+```
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+```
+- go to *Vehicles.API* : http://localhost:8002/swagger/index.html
+
+<img src="/pictures/vehicle.png" title="vehicle"  width="800">
+
+
+
+## Vehicles.Grpc 
+
+1. Package Manager Command
+```
+Install-Package Npgsql 
+Install-Package Dapper 
+Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection 
+Update-Package -ProjectName Discount.Grpc
+```
+
+2. Add **Connected Services** : 
+
+- Go to the *Basket.API* project 
+- add a service reference :
+
+<img src="/pictures/connected_services.png" title="connected services"  width="800">
+
+- Select *discount.proto* and *client* :
+
+<img src="/pictures/connected_services2.png" title="connected services"  width="800">
+
+3. Run all microservice **locally**
+    - docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+    - Force rebuild of *basket.api* : docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d --build
+    - go to *catalog.api* : http://localhost:8080/swagger/index.html
+    - go to *basket.api* : http://localhost:8001/swagger/index.html
+    - go to **portainer** : http://localhost:9000
+    - go to **pgadmin** : http://localhost:5050
+
+- click **Add New Server** and add *DiscountServer*, *discountdb*, username and password
+
+<img src="/pictures/pgadmin1.png" title="pgadmin"  width="300">
+<img src="/pictures/pgadmin2.png" title="pgadmin"  width="300">
+
+- You should now see the previously created tables :
+
+<img src="/pictures/pgadmin6.png" title="pgadmin"  width="500">
 
 
