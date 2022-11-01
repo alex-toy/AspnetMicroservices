@@ -21,7 +21,19 @@ services:
       context: .
       dockerfile: Services/Users/Users.API/Dockerfile
 
+
+  inventorydb:
+    image: redis:alpine
+
+  inventory.api:
+    image: ${DOCKER_REGISTRY-}inventoryapi
+    build:
+      context: .
+      dockerfile: Services/Inventory/Inventory.API/Dockerfile
+
+
 volumes:
   mongo_data:
   user_mongo_data:
+
 

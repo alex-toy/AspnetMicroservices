@@ -20,6 +20,7 @@ services:
     ports:
       - "8000:80"
 
+
   usermongodb:
     container_name : usermongodb
     restart: always
@@ -38,3 +39,19 @@ services:
     ports:
       - "8500:80"
 
+
+  inventorydb:
+    container_name: inventorydb
+    restart: always
+    ports:
+      - "6379:6379"
+
+  inventory.api:
+    container_name: inventory.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "RedisSettings:ConnectionString=inventorydb:6379"
+    depends_on:
+      - inventorydb
+    ports:
+      - "8001:80"

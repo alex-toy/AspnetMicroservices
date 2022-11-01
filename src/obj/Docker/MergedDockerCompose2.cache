@@ -18,11 +18,33 @@ services:
         condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      MongoSettings:ConnectionString: mongodb://articlemongodb:27018
+      MongoSettings:ConnectionString: mongodb://articlemongodb:27017
     image: articlesapi
     ports:
     - published: 8000
       target: 80
+  inventory.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Inventory/Inventory.API/Dockerfile
+    container_name: inventory.api
+    depends_on:
+      inventorydb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      RedisSettings:ConnectionString: inventorydb:6379
+    image: inventoryapi
+    ports:
+    - published: 8001
+      target: 80
+  inventorydb:
+    container_name: inventorydb
+    image: redis:alpine
+    ports:
+    - published: 6379
+      target: 6379
+    restart: always
   usermongodb:
     container_name: usermongodb
     image: mongo

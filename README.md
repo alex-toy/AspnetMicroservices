@@ -29,7 +29,9 @@ docker exec -it articles-mongo mongosh
 ```
 - Run all commands from *mongo_articles.txt*
 
-3. Run *Articles.API* microservice **locally**
+### Deployment
+
+1. Run *Articles.API* microservice **locally**
 - Run :
 ```
 docker start articles-mongo
@@ -39,11 +41,11 @@ docker start articles-mongo
 
 <img src="/pictures/article_swagger.png" title="article swagger"  width="800">
 
-4. Run *Articles.API* microservice **containerized**
+2. Run *Articles.API* microservice **containerized**
 - In *appsettings.Development.json*, set : "ConnectionString" : "mongodb://articlemongodb:27017"
 - Hit **Docker Compose**
 
-5. Run *Articles.API* microservice **docker compose**
+3. Run *Articles.API* microservice **docker compose**
 ```
 docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
 docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
@@ -76,7 +78,9 @@ docker exec -it users-mongo mongosh
 ```
 - Run all commands from *mongo_users.txt*
 
-3. Run *Users.API* microservice **locally**
+### Deployment
+
+1. Run *Users.API* microservice **locally**
 - Run :
 ```
 docker start users-mongo
@@ -85,11 +89,9 @@ docker start users-mongo
 - Hit **Users.API**
 - go to *Users.API* : http://localhost:5501/swagger/index.html
 
-4. Run *Users.API* microservice **containerized**
+2. Run *Users.API* microservice **containerized**
 - In *appsettings.Development.json*, set : "ConnectionString" : "mongodb://usermongodb:27017"
-- Hit **Docker Compose**
-
-5. Run *Users.API* microservice **docker compose**
+- Hit **Docker Compose** or run :
 ```
 docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
 docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
@@ -97,4 +99,50 @@ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 - go to *Users.API* : http://localhost:8500/swagger/index.html
 
 <img src="/pictures/user_swagger.png" title="user swagger"  width="800">
+
+
+
+
+## Inventory.API with Redis
+
+### Packages
+
+1. Package Manager Command in **Inventory.API**
+```
+Install-Package Microsoft.Extensions.Caching.StackExchangeRedis 
+Update-Package -ProjectName Inventory.API
+```
+
+2. Redis database
+```
+docker pull redis
+docker run -d -p 6379:6379 --name inventory-redis redis
+docker logs -f inventory-redis
+docker exec -it inventory-redis /bin/bash
+redis-cli
+set key value
+get key
+```
+
+### Deployment
+
+1. Run *Users.API* microservice **locally**
+- Run :
+```
+docker start inventory-redis
+```
+- In *appsettings.Development.json*, set : "ConnectionString" : "localhost:6379"
+- Hit **Inventory.API**
+
+2. Run *Inventory.API* microservice **containerized**
+- In *appsettings.Development.json*, set : "ConnectionString" : "inventorydb:6379"
+- Hit **Docker Compose** or run :
+```
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+```
+- go to *Inventory.API* : http://localhost:8001/swagger/index.html
+
+<img src="/pictures/inventory.png" title="inventory local"  width="800">
+
 

@@ -25,7 +25,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       DOTNET_USE_POLLING_FILE_WATCHER: '1'
-      MongoSettings:ConnectionString: mongodb://articlemongodb:27018
+      MongoSettings:ConnectionString: mongodb://articlemongodb:27017
       NUGET_FALLBACK_PACKAGES: ''
     image: articlesapi:dev
     labels:
@@ -45,6 +45,50 @@ services:
     - C:\Users\alexe\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
     - C:\Users\alexe\.nuget\packages:/root/.nuget/packages:ro
     - C:\source\Csharp\AspnetMicroservices\src:/src:rw
+  inventory.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Inventory/Inventory.API/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Inventory.API
+      target: base
+    container_name: inventory.api
+    depends_on:
+      inventorydb:
+        condition: service_started
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+      RedisSettings:ConnectionString: inventorydb:6379
+    image: inventoryapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net6.0/Inventory.API.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 8001
+      target: 80
+    tty: true
+    volumes:
+    - C:\source\Csharp\AspnetMicroservices\src\Services\Inventory\Inventory.API:/app:rw
+    - C:\Users\alexe\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\alexe\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\alexe\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\alexe\.nuget\packages:/root/.nuget/packages:ro
+    - C:\source\Csharp\AspnetMicroservices\src:/src:rw
+  inventorydb:
+    container_name: inventorydb
+    image: redis:alpine
+    ports:
+    - published: 6379
+      target: 6379
+    restart: always
   usermongodb:
     container_name: usermongodb
     image: mongo
