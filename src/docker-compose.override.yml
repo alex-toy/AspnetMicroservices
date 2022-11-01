@@ -65,3 +65,18 @@ services:
       - inventorydb
     ports:
       - "8001:80"
+
+
+  transportdb:
+    container_name: transportdb
+    restart: always
+    ports:
+      - "6380:6379"
+
+  transport.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "RedisSettings:ConnectionString=transportdb:6379"
+    ports:
+      - "8501:80"
+

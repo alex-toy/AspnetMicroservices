@@ -35,3 +35,8 @@ C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Inventory.API.pdb
 C:\source\Csharp\AspnetMicroservices\src\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\source\Csharp\AspnetMicroservices\src\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\source\Csharp\AspnetMicroservices\src\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.deps.json
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.runtimeconfig.json
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.exe
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.dll
+C:\source\Csharp\AspnetMicroservices\src\bin\Debug\Transport.API.pdb

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UUNjpEWqFxumTD2iSyCe2ClLVci1xQxN//84ZOGtAIkCW1hfoMMCf4Fd7BYyGAw6ro4iGBZ9atiwvJw9U6pc+w==",
+  "dgSpecHash": "y40LI7VIlQRGucLWLwnjM2P4bs1ZhN+5xDcYjUkUaj8UIZVSF4o+gT/CC8hsmrSARD6AgTHuM9hTzyN6C+51TA==",
   "success": true,
   "projectFilePath": "C:\\source\\Csharp\\AspnetMicroservices\\src\\Services\\Inventory\\Inventory.API\\Inventory.API.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,7 @@
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\alexe\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
+    "C:\\Users\\alexe\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\alexe\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",

@@ -147,6 +147,7 @@ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 
 
 
+
 ## Portainer
 
 - run : docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
@@ -154,5 +155,50 @@ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 - Create a user
 
 <img src="/pictures/portainer.png" title="portainer"  width="800">
+
+
+
+
+## Transport.API with Redis
+
+### Packages
+
+1. Package Manager Command in **Transport.API**
+```
+Install-Package Microsoft.Extensions.Caching.StackExchangeRedis 
+Update-Package -ProjectName Transport.API
+```
+
+2. Redis database
+```
+docker pull redis
+docker run -d -p 6380:6379 --name transport-redis redis
+docker logs -f transport-redis
+docker exec -it transport-redis /bin/bash
+redis-cli
+set key value
+get key
+```
+
+### Deployment
+
+1. Run *Users.API* microservice **locally**
+- Run :
+```
+docker start transport-redis
+```
+- In *appsettings.Development.json*, set : "ConnectionString" : "localhost:6379"
+- Hit **Transport.API**
+
+2. Run *Transport.API* microservice **containerized**
+- In *appsettings.Development.json*, set : "ConnectionString" : "transportdb:6379"
+- Hit **Docker Compose** or run :
+```
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+```
+- go to *Transport.API* : http://localhost:8501/swagger/index.html
+
+<img src="/pictures/transport.png" title="transport local"  width="800">
 
 

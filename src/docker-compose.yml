@@ -5,6 +5,7 @@ services:
   portainer:
     image: portainer/portainer-ce
 
+
   articlemongodb:
     image: mongo
 
@@ -35,9 +36,20 @@ services:
       dockerfile: Services/Inventory/Inventory.API/Dockerfile
 
 
+  transportdb:
+    image: redis:alpine
+
+  transport.api:
+    image: ${DOCKER_REGISTRY-}transportapi
+    build:
+      context: .
+      dockerfile: Services/Transport/Transport.API/Dockerfile
+
+
 volumes:
   mongo_data:
   user_mongo_data:
   portainer_data:
+
 
 
