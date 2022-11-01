@@ -146,3 +146,13 @@ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 <img src="/pictures/inventory.png" title="inventory local"  width="800">
 
 
+
+## Portainer
+
+- run : docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+- go to : http://localhost:9000
+- Create a user
+
+<img src="/pictures/portainer.png" title="portainer"  width="800">
+
+

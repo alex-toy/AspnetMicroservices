@@ -2,6 +2,9 @@ version: '3.4'
 
 services:
 
+  portainer:
+    image: portainer/portainer-ce
+
   articlemongodb:
     image: mongo
 
@@ -35,5 +38,6 @@ services:
 volumes:
   mongo_data:
   user_mongo_data:
+  portainer_data:
 
 
