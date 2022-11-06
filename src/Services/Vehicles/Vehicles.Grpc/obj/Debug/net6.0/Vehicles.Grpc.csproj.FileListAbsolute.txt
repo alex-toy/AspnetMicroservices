@@ -1,0 +1,6 @@
+C:\source\Csharp\AspnetMicroservices\src\Services\Vehicles\Vehicles.Grpc\obj\Debug\net6.0\Vehicles.Grpc.csproj.AssemblyReference.cache
+C:\source\Csharp\AspnetMicroservices\src\Services\Vehicles\Vehicles.Grpc\obj\Debug\net6.0\Vehicles.Grpc.GeneratedMSBuildEditorConfig.editorconfig
+C:\source\Csharp\AspnetMicroservices\src\Services\Vehicles\Vehicles.Grpc\obj\Debug\net6.0\Vehicles.Grpc.AssemblyInfoInputs.cache
+C:\source\Csharp\AspnetMicroservices\src\Services\Vehicles\Vehicles.Grpc\obj\Debug\net6.0\Vehicles.Grpc.AssemblyInfo.cs
+C:\source\Csharp\AspnetMicroservices\src\Services\Vehicles\Vehicles.Grpc\obj\Debug\net6.0\Vehicles.Grpc.csproj.CoreCompileInputs.cache
+C:\source\Csharp\AspnetMicroservices\src\Services\Vehicles\Vehicles.Grpc\obj\Debug\net6.0\Vehicles.Grpc.MvcApplicationPartsAssemblyInfo.cache

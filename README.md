@@ -265,40 +265,36 @@ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 
 ## Vehicles.Grpc 
 
+### Packages and references
+
 1. Package Manager Command
 ```
 Install-Package Npgsql 
 Install-Package Dapper 
+Install-Package Grpc.AspNetCore 
 Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection 
-Update-Package -ProjectName Discount.Grpc
+Update-Package -ProjectName Vehicles.Grpc
 ```
 
 2. Add **Connected Services** : 
 
-- Go to the *Basket.API* project 
-- add a service reference :
+- Go to the *Transport.API* project and add a service reference to *Vehicles.Grpc*:
 
 <img src="/pictures/connected_services.png" title="connected services"  width="800">
 
-- Select *discount.proto* and *client* :
+- Right click on *vehicle.proto* and set the following properties :
+
+<img src="/pictures/proto_configuration.png" title="proto configuration"  width="800">
+
+- Select *vehicle.proto* and *client* :
 
 <img src="/pictures/connected_services2.png" title="connected services"  width="800">
 
-3. Run all microservice **locally**
-    - docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
-    - Force rebuild of *basket.api* : docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d --build
-    - go to *catalog.api* : http://localhost:8080/swagger/index.html
-    - go to *basket.api* : http://localhost:8001/swagger/index.html
-    - go to **portainer** : http://localhost:9000
-    - go to **pgadmin** : http://localhost:5050
+Make sure *Transport.API* is a client of *Vehicles.Grpc*.
 
-- click **Add New Server** and add *DiscountServer*, *discountdb*, username and password
+### Deployment
 
-<img src="/pictures/pgadmin1.png" title="pgadmin"  width="300">
-<img src="/pictures/pgadmin2.png" title="pgadmin"  width="300">
-
-- You should now see the previously created tables :
-
-<img src="/pictures/pgadmin6.png" title="pgadmin"  width="500">
-
+1. Run *Vehicles.Grpc* microservice **locally**
+- In *appsettings.Development.json*, set : "ConnectionString" : "localhost:5432"
+- Hit **Vehicles.Grpc**
 

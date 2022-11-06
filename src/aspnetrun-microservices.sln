@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transport.API", "Services\T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vehicles", "Vehicles", "{61C7EEE5-F55B-4E2B-B1B3-0AC533FACBFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles.API", "Services\Vehicles\Vehicles.API\Vehicles.API.csproj", "{D52CC6CE-CEFD-45E0-AE8A-5B90A3D5F77D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles.API", "Services\Vehicles\Vehicles.API\Vehicles.API.csproj", "{D52CC6CE-CEFD-45E0-AE8A-5B90A3D5F77D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles.Grpc", "Services\Vehicles\Vehicles.Grpc\Vehicles.Grpc.csproj", "{722C1ADA-3A26-42BE-8733-3944DB4FD45C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{D52CC6CE-CEFD-45E0-AE8A-5B90A3D5F77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D52CC6CE-CEFD-45E0-AE8A-5B90A3D5F77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D52CC6CE-CEFD-45E0-AE8A-5B90A3D5F77D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{722C1ADA-3A26-42BE-8733-3944DB4FD45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722C1ADA-3A26-42BE-8733-3944DB4FD45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722C1ADA-3A26-42BE-8733-3944DB4FD45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722C1ADA-3A26-42BE-8733-3944DB4FD45C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{0A6A9FF7-A894-4B1E-9F9F-8B1ED2DEA955} = {408DA627-2FCC-4564-AFCA-635BED6AE0EC}
 		{61C7EEE5-F55B-4E2B-B1B3-0AC533FACBFD} = {13DDFB6C-F723-442F-9383-C0245483F8BB}
 		{D52CC6CE-CEFD-45E0-AE8A-5B90A3D5F77D} = {61C7EEE5-F55B-4E2B-B1B3-0AC533FACBFD}
+		{722C1ADA-3A26-42BE-8733-3944DB4FD45C} = {61C7EEE5-F55B-4E2B-B1B3-0AC533FACBFD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C288838-487A-4CE5-B3D6-74C26880604A}

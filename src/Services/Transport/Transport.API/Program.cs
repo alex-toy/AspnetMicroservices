@@ -1,4 +1,5 @@
 using Transport.API.Repositories;
+using Vehicles.Grpc.Protos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 // General Configuration
 builder.Services.AddScoped<ITransportRepository, TransportRepository>();
+builder.Services.AddGrpcClient<VehicleProtoService.VehicleProtoServiceClient>();
 
 // Redis Configuration
 string RedisConnectionString = builder.Configuration["RedisSettings:ConnectionString"];

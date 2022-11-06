@@ -10,21 +10,15 @@ namespace Inventory.API.Controllers
     public class InventoryController : ControllerBase
     {
         private readonly IInventoryRepository _repository;
-        //private readonly DiscountGrpcService _discountGrpcService;
-        //private readonly IPublishEndpoint _publishEndpoint;
-        //private readonly IMapper _mapper;
+        private readonly ILogger<InventoryController> _logger;
 
         public InventoryController(
-            IInventoryRepository repository
-            //DiscountGrpcService discountGrpcService,
-            //IPublishEndpoint publishEndpoint,
-            //IMapper mapper
+            IInventoryRepository repository, 
+            ILogger<InventoryController> logger
         )
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            //_discountGrpcService = discountGrpcService ?? throw new ArgumentNullException(nameof(discountGrpcService));
-            //_publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
-            //_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet("{name}", Name = "Get")]
@@ -39,12 +33,6 @@ namespace Inventory.API.Controllers
         [ProducesResponseType(typeof(Warehouse), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Warehouse>> Update([FromBody] Warehouse warehouse)
         {
-            foreach (var item in warehouse.Items)
-            {
-                //var coupon = await _discountGrpcService.GetDiscount(item.Name);
-                //item.Quantity -= coupon.Amount;
-            }
-
             return Ok(await _repository.Update(warehouse));
         }
 
@@ -68,12 +56,9 @@ namespace Inventory.API.Controllers
                 return BadRequest();
             }
 
-            // send checkout event to rabbitmq
-            //var eventMessage = _mapper.Map<BasketCheckoutEvent>(arrival);
-            //eventMessage.TotalPrice = warehouse.TotalPrice;
-            //await _publishEndpoint.Publish(eventMessage);
+            warehouse.Items = arrival.Items;
 
-            await _repository.Delete(warehouse.Name);
+            await _repository.Update(warehouse);
 
             return Accepted();
         }

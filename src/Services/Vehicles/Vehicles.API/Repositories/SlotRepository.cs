@@ -19,8 +19,14 @@ namespace Vehicles.API.Repositories
             using var connection = new NpgsqlConnection(connectionString);
 
             var affected = await connection.ExecuteAsync(
-                "INSERT INTO TruckSlot (TruckId, StartDate, EndDate) VALUES (@TruckId, @StartDate, @EndDate)",
-                new { TruckId = truckSlot.TruckId, StartDate = truckSlot.StartDate, EndDate = truckSlot.EndDate }
+                "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) " +
+                "VALUES (@TruckId, @StartDate, @EndDate)",
+                new { 
+                    TruckId = truckSlot.TruckId, 
+                    CurrentLocation = truckSlot.CurrentLocation,
+                    CurrentDestination = truckSlot.CurrentDestination,
+                    Capacity = truckSlot.Capacity
+                }
             );
 
             if (affected == 0) return false;
@@ -53,8 +59,12 @@ namespace Vehicles.API.Repositories
                 new { TruckId = truckId }
             );
 
-            if (truckSlot == null)
-                return new TruckSlot { TruckId = "", StartDate = DateTime.MaxValue, EndDate = DateTime.MinValue };
+            if (truckSlot == null) return new TruckSlot { 
+                TruckId = "", 
+                CurrentLocation = "", 
+                CurrentDestination = "", 
+                Capacity = 0 
+            };
 
             return truckSlot;
         }
@@ -65,8 +75,14 @@ namespace Vehicles.API.Repositories
             using var connection = new NpgsqlConnection(connectionString);
 
             var affected = await connection.ExecuteAsync(
-                "UPDATE TruckSlot SET StartDate=@StartDate, EndDate=@EndDate WHERE TruckId = @TruckId",
-                new { StartDate = truckSlot.StartDate, EndDate = truckSlot.EndDate, TruckId = truckSlot.TruckId }
+                "UPDATE TruckSlot SET CurrentLocation=@CurrentLocation, CurrentDestination=@CurrentDestination, Capacity=@Capacity " +
+                "WHERE TruckId = @TruckId",
+                new { 
+                    CurrentLocation = truckSlot.CurrentLocation, 
+                    CurrentDestination = truckSlot.CurrentDestination,
+                    Capacity = truckSlot.Capacity,
+                    TruckId = truckSlot.TruckId 
+                }
             );
 
             if (affected == 0) return false;

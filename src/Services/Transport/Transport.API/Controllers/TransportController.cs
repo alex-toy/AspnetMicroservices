@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using Transport.API.Entities;
+using Transport.API.GrpcServices;
 using Transport.API.Repositories;
 
 namespace Transport.API.Controllers
@@ -10,19 +11,19 @@ namespace Transport.API.Controllers
     public class TransportController : ControllerBase
     {
         private readonly ITransportRepository _repository;
-        //private readonly DiscountGrpcService _discountGrpcService;
+        private readonly VehicleGrpcService _vehicleGrpcService;
         //private readonly IPublishEndpoint _publishEndpoint;
         //private readonly IMapper _mapper;
 
         public TransportController(
-            ITransportRepository repository
-        //DiscountGrpcService discountGrpcService,
+            ITransportRepository repository,
+            VehicleGrpcService vehicleGrpcService
         //IPublishEndpoint publishEndpoint,
         //IMapper mapper
         )
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            //_discountGrpcService = discountGrpcService ?? throw new ArgumentNullException(nameof(discountGrpcService));
+            _vehicleGrpcService = vehicleGrpcService ?? throw new ArgumentNullException(nameof(vehicleGrpcService));
             //_publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
             //_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
@@ -37,11 +38,20 @@ namespace Transport.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(TransportPlanning), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<TransportPlanning>> Create([FromBody] TransportPlanning transportPlanning)
+        {
+            await _vehicleGrpcService.CreateSlot(transportPlanning.From);
+
+            return Ok(await _repository.Update(transportPlanning));
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(TransportPlanning), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<TransportPlanning>> Update([FromBody] TransportPlanning TransportPlanning)
         {
             foreach (var item in TransportPlanning.Items)
             {
-                //var coupon = await _discountGrpcService.GetDiscount(item.Name);
+                //var coupon = await _vehicleGrpcService.GetDiscount(item.Name);
                 //item.Quantity -= coupon.Amount;
             }
 

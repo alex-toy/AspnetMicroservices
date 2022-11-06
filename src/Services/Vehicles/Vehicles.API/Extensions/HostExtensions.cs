@@ -18,8 +18,7 @@ namespace Discount.API.Extensions
                 {
                     logger.LogInformation("Migrating postresql database.");
 
-                    using var connection = new NpgsqlConnection
-                        (configuration.GetValue<string>("PostgresSettings:ConnectionString"));
+                    using var connection = new NpgsqlConnection(configuration.GetValue<string>("PostgresSettings:ConnectionString"));
                     connection.Open();
 
                     using var command = new NpgsqlCommand
@@ -32,15 +31,17 @@ namespace Discount.API.Extensions
                         "DROP TABLE IF EXISTS TruckSlot",
 
                         @"CREATE TABLE TruckSlot (
-	                        Id 				SERIAL PRIMARY KEY NOT NULL,
-	                        TruckId     	VARCHAR(24) NOT NULL,
-	                        StartDate    	Date,
-	                        EndDate       	Date
+	                        Id 				    SERIAL PRIMARY KEY NOT NULL,
+	                        TruckId     	    VARCHAR(24) NOT NULL,
+	                        CurrentLocation     VARCHAR(24) NOT NULL,
+	                        CurrentDestination  VARCHAR(24) NULL,
+	                        Capacity            INT NOT NULL,
                         );",
 
-                        "INSERT INTO TruckSlot (TruckId, StartDate, EndDate) VALUES ('001', '2022-6-1', '2022-6-3');",
-                        "INSERT INTO TruckSlot (TruckId, StartDate, EndDate) VALUES ('002', '2022-6-2', '2022-6-3');",
-                        "INSERT INTO TruckSlot (TruckId, StartDate, EndDate) VALUES ('003', '2022-6-3', '2022-6-4');"
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('001', 'Lyon', '');",
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('002', 'Paris', '');",
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('003', 'Marseille', '');",
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('004', 'Lille', '');",
                     };
 
                     foreach (string query in queries)

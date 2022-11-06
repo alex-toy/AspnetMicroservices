@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "Vehicles.Grpc.Protos";
+
+service VehicleProtoService {
+	rpc Get (GetRequest) returns (SlotModel);
+	rpc CreateSlot (CreateRequest) returns (SlotModel);
+	rpc CreateSlotFromLocation (CreateSlotRequest) returns (SlotModel);
+	rpc Update (UpdateRequest) returns (SlotModel);
+	rpc Delete (DeleteRequest) returns (DeleteResponse);
+}
+
+message GetRequest {
+    string TruckId = 1;
+}
+
+message SlotModel {
+    int32 Id = 1;
+    string TruckId = 2;
+    string CurrentLocation = 3;
+    string CurrentDestination = 4;
+    int32 Capacity = 5;
+}
+
+message CreateSlotRequest {
+    string CurrentLocation = 1;
+}
+
+message CreateRequest {
+    SlotModel slot = 1;
+}
+
+message UpdateRequest {
+	SlotModel slot = 1;
+}
+
+message DeleteRequest {
+	string TruckId = 1;
+}
+
+message DeleteResponse {
+	bool success = 1;
+}
+
+
