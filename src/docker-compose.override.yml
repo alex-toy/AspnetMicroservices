@@ -81,6 +81,20 @@ services:
       - "8501:80"
 
 
+  deliverydb:
+    container_name: deliverydb
+    restart: always
+    ports:
+      - "6381:6379"
+
+  deliveries.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=deliverydb:6379"
+    ports:
+      - "8502:80"
+
+
   vehicledb:
     container_name : vehicledb
     environment:
@@ -114,3 +128,35 @@ services:
     ports:
       - "8002:80"
 
+
+  bikedb:
+    container_name : bikedb
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=BikeDb
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_bike_data:/var/lib/postgresql/data/
+
+  pgadmin_bike:
+    container_name: pgadmin_bike
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
+    restart: always
+    ports:
+        - "5051:80"
+    volumes:
+      - pgadmin_bike_data:/root/.pgadmin
+
+  bikes.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "PostgresSettings:ConnectionString=Server=bikedb;Port=5432;Database=BikeDb;User Id=admin;Password=admin1234;"
+    depends_on:
+      - bikedb
+    ports:
+      - "8503:80"

@@ -13,20 +13,19 @@ namespace Vehicles.Grpc.Repositories
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
 
-        public async Task<bool> CreateSlot(string truckSlot)
+        public async Task<bool> CreateSlot(string currentLocation, string newDestination)
         {
             string connectionString = _configuration.GetValue<string>("PostgresSettings:ConnectionString");
             using var connection = new NpgsqlConnection(connectionString);
 
             var affected = await connection.ExecuteAsync(
-                "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) " +
-                "VALUES (@TruckId, @StartDate, @EndDate)",
+                "UPDATE TruckSlot " +
+                "SET CurrentDestination = @NewDestination " +
+                "WHERE CurrentLocation = @CurrentLocation; ",
                 new
                 {
-                    TruckId = truckSlot.TruckId,
-                    CurrentLocation = truckSlot.CurrentLocation,
-                    CurrentDestination = truckSlot.CurrentDestination,
-                    Capacity = truckSlot.Capacity
+                    CurrentLocation = currentLocation,
+                    NewDestination = newDestination,
                 }
             );
 

@@ -5,7 +5,7 @@ option csharp_namespace = "Vehicles.Grpc.Protos";
 service VehicleProtoService {
 	rpc Get (GetRequest) returns (SlotModel);
 	rpc CreateSlot (CreateRequest) returns (SlotModel);
-	rpc CreateSlotFromLocation (CreateSlotRequest) returns (SlotModel);
+	rpc CreateSlotFromLocation (CreateSlotRequest) returns (CreateSlotFromLocationResponse);
 	rpc Update (UpdateRequest) returns (SlotModel);
 	rpc Delete (DeleteRequest) returns (DeleteResponse);
 }
@@ -24,6 +24,7 @@ message SlotModel {
 
 message CreateSlotRequest {
     string CurrentLocation = 1;
+    string NewDestination = 2;
 }
 
 message CreateRequest {
@@ -39,6 +40,10 @@ message DeleteRequest {
 }
 
 message DeleteResponse {
+	bool success = 1;
+}
+
+message CreateSlotFromLocationResponse {
 	bool success = 1;
 }
 

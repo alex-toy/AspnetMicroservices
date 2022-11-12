@@ -36,29 +36,35 @@ namespace Vehicles.Grpc.Services
             return SlotModel;
         }
 
-        public override async Task<SlotModel> CreateSlotFromLocation(CreateSlotRequest request, ServerCallContext context)
+        public override async Task<CreateSlotFromLocationResponse> CreateSlotFromLocation(CreateSlotRequest request, ServerCallContext context)
         {
-            TruckSlot? Slot = _mapper.Map<TruckSlot>(request.CurrentLocation);
+            var success = await _repository.CreateSlot(request.CurrentLocation, request.NewDestination);
 
-            await _repository.Create(Slot);
+            string logMessage = $"Truck Slot is successfully allocated. " +
+                $"CurrentLocation : {request.CurrentLocation}, " +
+                $"NewDestination : {request.NewDestination}.";
 
-            _logger.LogInformation($"Truck Slot is successfully allocated. TruckId : {Slot.TruckId}");
+            _logger.LogInformation(logMessage);
 
-            SlotModel? SlotModel = _mapper.Map<SlotModel>(Slot);
-            return SlotModel;
+            CreateSlotFromLocationResponse? response = new CreateSlotFromLocationResponse
+            {
+                Success = success
+            };
+
+            return response;
         }
 
-        public override async Task<SlotModel> CreateSlot(CreateRequest request, ServerCallContext context)
-        {
-            TruckSlot? Slot = _mapper.Map<TruckSlot>(request.slot);
+        //public override async Task<SlotModel> CreateSlot(CreateRequest request, ServerCallContext context)
+        //{
+        //    TruckSlot? Slot = _mapper.Map<TruckSlot>(request.slot);
 
-            await _repository.Create(Slot);
+        //    await _repository.Create(Slot);
 
-            _logger.LogInformation($"Truck Slot is successfully allocated. TruckId : {Slot.TruckId}");
+        //    _logger.LogInformation($"Truck Slot is successfully allocated. TruckId : {Slot.TruckId}");
 
-            SlotModel? SlotModel = _mapper.Map<SlotModel>(Slot);
-            return SlotModel;
-        }
+        //    SlotModel? SlotModel = _mapper.Map<SlotModel>(Slot);
+        //    return SlotModel;
+        //}
 
         public override async Task<SlotModel> Update(UpdateRequest request, ServerCallContext context)
         {

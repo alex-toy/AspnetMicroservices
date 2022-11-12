@@ -54,6 +54,8 @@ namespace Vehicles.Grpc.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Vehicles.Grpc.Protos.CreateSlotRequest> __Marshaller_CreateSlotRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Vehicles.Grpc.Protos.CreateSlotRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse> __Marshaller_CreateSlotFromLocationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Vehicles.Grpc.Protos.UpdateRequest> __Marshaller_UpdateRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Vehicles.Grpc.Protos.UpdateRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Vehicles.Grpc.Protos.DeleteRequest> __Marshaller_DeleteRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Vehicles.Grpc.Protos.DeleteRequest.Parser));
@@ -77,12 +79,12 @@ namespace Vehicles.Grpc.Protos {
         __Marshaller_SlotModel);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Vehicles.Grpc.Protos.CreateSlotRequest, global::Vehicles.Grpc.Protos.SlotModel> __Method_CreateSlotFromLocation = new grpc::Method<global::Vehicles.Grpc.Protos.CreateSlotRequest, global::Vehicles.Grpc.Protos.SlotModel>(
+    static readonly grpc::Method<global::Vehicles.Grpc.Protos.CreateSlotRequest, global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse> __Method_CreateSlotFromLocation = new grpc::Method<global::Vehicles.Grpc.Protos.CreateSlotRequest, global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CreateSlotFromLocation",
         __Marshaller_CreateSlotRequest,
-        __Marshaller_SlotModel);
+        __Marshaller_CreateSlotFromLocationResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Vehicles.Grpc.Protos.UpdateRequest, global::Vehicles.Grpc.Protos.SlotModel> __Method_Update = new grpc::Method<global::Vehicles.Grpc.Protos.UpdateRequest, global::Vehicles.Grpc.Protos.SlotModel>(
@@ -123,7 +125,7 @@ namespace Vehicles.Grpc.Protos {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Vehicles.Grpc.Protos.SlotModel> CreateSlotFromLocation(global::Vehicles.Grpc.Protos.CreateSlotRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse> CreateSlotFromLocation(global::Vehicles.Grpc.Protos.CreateSlotRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -164,7 +166,7 @@ namespace Vehicles.Grpc.Protos {
     {
       serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Vehicles.Grpc.Protos.GetRequest, global::Vehicles.Grpc.Protos.SlotModel>(serviceImpl.Get));
       serviceBinder.AddMethod(__Method_CreateSlot, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Vehicles.Grpc.Protos.CreateRequest, global::Vehicles.Grpc.Protos.SlotModel>(serviceImpl.CreateSlot));
-      serviceBinder.AddMethod(__Method_CreateSlotFromLocation, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Vehicles.Grpc.Protos.CreateSlotRequest, global::Vehicles.Grpc.Protos.SlotModel>(serviceImpl.CreateSlotFromLocation));
+      serviceBinder.AddMethod(__Method_CreateSlotFromLocation, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Vehicles.Grpc.Protos.CreateSlotRequest, global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse>(serviceImpl.CreateSlotFromLocation));
       serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Vehicles.Grpc.Protos.UpdateRequest, global::Vehicles.Grpc.Protos.SlotModel>(serviceImpl.Update));
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Vehicles.Grpc.Protos.DeleteRequest, global::Vehicles.Grpc.Protos.DeleteResponse>(serviceImpl.Delete));
     }

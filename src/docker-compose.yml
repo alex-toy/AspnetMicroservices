@@ -45,6 +45,16 @@ services:
       context: .
       dockerfile: Services/Transport/Transport.API/Dockerfile
 
+
+  deliverydb:
+    image: redis:alpine
+
+  deliveries.api:
+    image: ${DOCKER_REGISTRY-}deliveriesapi
+    build:
+      context: .
+      dockerfile: Services/Deliveries/Deliveries.API/Dockerfile
+
       
   vehicledb:
     image: postgres
@@ -58,13 +68,30 @@ services:
       context: .
       dockerfile: Services/Vehicles/Vehicles.API/Dockerfile
 
+      
+  bikedb:
+    image: postgres
+
+  pgadmin_bike:
+    image: dpage/pgadmin4
+
+  bikes.api:
+    image: ${DOCKER_REGISTRY-}bikesapi
+    build:
+      context: .
+      dockerfile: Services/Bikes/Bikes.API/Dockerfile
+
 
 volumes:
   mongo_data:
   user_mongo_data:
   portainer_data:
   postgres_data:
+  postgres_bike_data:
   pgadmin_data:
+  pgadmin_bike_data:
+
+
 
 
 

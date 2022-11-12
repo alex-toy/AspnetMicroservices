@@ -1,0 +1,193 @@
+services:
+  articlemongodb:
+    container_name: articlemongodb
+    image: mongo
+    ports:
+    - published: 27017
+      target: 27017
+    restart: always
+    volumes:
+    - mongo_data:/data/db:rw
+  articles.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Articles/Articles.API/Dockerfile
+    container_name: articles.api
+    depends_on:
+      articlemongodb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      MongoSettings:ConnectionString: mongodb://articlemongodb:27017
+    image: articlesapi
+    ports:
+    - published: 8000
+      target: 80
+  bikedb:
+    container_name: bikedb
+    environment:
+      POSTGRES_DB: BikeDb
+      POSTGRES_PASSWORD: admin1234
+      POSTGRES_USER: admin
+    image: postgres
+    ports:
+    - published: 5433
+      target: 5432
+    restart: always
+    volumes:
+    - postgres_bike_data:/var/lib/postgresql/data/:rw
+  bikes.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Bikes/Bikes.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      PostgresSettings:ConnectionString: Server=bikedb;Port=5432;Database=BikeDb;User
+        Id=admin;Password=admin1234;
+    image: bikesapi
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\alexe\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  deliveries.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Deliveries/Deliveries.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      CacheSettings:ConnectionString: deliverydb:6379
+    image: deliveriesapi
+    ports:
+    - published: 8502
+      target: 80
+  deliverydb:
+    container_name: deliverydb
+    image: redis:alpine
+    ports:
+    - published: 6381
+      target: 6379
+    restart: always
+  inventory.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Inventory/Inventory.API/Dockerfile
+    container_name: inventory.api
+    depends_on:
+      inventorydb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      RedisSettings:ConnectionString: inventorydb:6379
+    image: inventoryapi
+    ports:
+    - published: 8001
+      target: 80
+  inventorydb:
+    container_name: inventorydb
+    image: redis:alpine
+    ports:
+    - published: 6379
+      target: 6379
+    restart: always
+  pgadmin:
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@aspnetrun.com
+      PGADMIN_DEFAULT_PASSWORD: admin1234
+    image: dpage/pgadmin4
+    ports:
+    - published: 5050
+      target: 80
+    restart: always
+    volumes:
+    - pgadmin_data:/root/.pgadmin:rw
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce
+    ports:
+    - published: 9000
+      target: 9000
+    restart: always
+    volumes:
+    - portainer_data:/data:rw
+    - /var/run/docker.sock:/var/run/docker.sock:rw
+  transport.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Transport/Transport.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      RedisSettings:ConnectionString: transportdb:6379
+    image: transportapi
+    ports:
+    - published: 8501
+      target: 80
+  transportdb:
+    container_name: transportdb
+    image: redis:alpine
+    ports:
+    - published: 6380
+      target: 6379
+    restart: always
+  usermongodb:
+    container_name: usermongodb
+    image: mongo
+    ports:
+    - published: 27018
+      target: 27017
+    restart: always
+    volumes:
+    - user_mongo_data:/data/db:rw
+  users.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Users/Users.API/Dockerfile
+    container_name: users.api
+    depends_on:
+      usermongodb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      MongoSettings:ConnectionString: mongodb://usermongodb:27017
+    image: usersapi
+    ports:
+    - published: 8500
+      target: 80
+  vehicledb:
+    container_name: vehicledb
+    environment:
+      POSTGRES_DB: VehicleDb
+      POSTGRES_PASSWORD: admin1234
+      POSTGRES_USER: admin
+    image: postgres
+    ports:
+    - published: 5432
+      target: 5432
+    restart: always
+    volumes:
+    - postgres_data:/var/lib/postgresql/data/:rw
+  vehicles.api:
+    build:
+      context: C:\source\Csharp\AspnetMicroservices\src
+      dockerfile: Services/Vehicles/Vehicles.API/Dockerfile
+    container_name: vehicles.api
+    depends_on:
+      vehicledb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      PostgresSettings:ConnectionString: Server=vehicledb;Port=5432;Database=VehicleDb;User
+        Id=admin;Password=admin1234;
+    image: vehicleapi
+    ports:
+    - published: 8002
+      target: 80
+version: '3.4'
+volumes:
+  mongo_data: {}
+  pgadmin_data: {}
+  portainer_data: {}
+  postgres_bike_data: {}
+  postgres_data: {}
+  user_mongo_data: {}

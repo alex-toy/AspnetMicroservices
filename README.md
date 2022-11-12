@@ -298,3 +298,11 @@ Make sure *Transport.API* is a client of *Vehicles.Grpc*.
 - In *appsettings.Development.json*, set : "ConnectionString" : "localhost:5432"
 - Hit **Vehicles.Grpc**
 
+
+
+## Bikes.API with PostgreSQL
+
+- go to **pgadmin** : http://localhost:5051
+- click **Add New Server** and add *VehicleServer*, *VehicleDb*, username and password
+- go to *Vehicles.API* : http://localhost:8503/swagger/index.html
+

@@ -33,5 +33,12 @@ namespace Transport.API.Repositories
 
             return await Get(transportPlanning.UserName);
         }
+
+        public async Task<TransportPlanning> Create(TransportPlanning transportPlanning)
+        {
+            await _redisCache.SetStringAsync(transportPlanning.UserName, JsonConvert.SerializeObject(transportPlanning));
+
+            return await Get(transportPlanning.UserName);
+        }
     }
 }

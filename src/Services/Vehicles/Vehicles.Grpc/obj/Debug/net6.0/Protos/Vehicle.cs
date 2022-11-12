@@ -27,28 +27,31 @@ namespace Vehicles.Grpc.Protos {
             "ChRQcm90b3MvdmVoaWNsZS5wcm90byIdCgpHZXRSZXF1ZXN0Eg8KB1RydWNr",
             "SWQYASABKAkibwoJU2xvdE1vZGVsEgoKAklkGAEgASgFEg8KB1RydWNrSWQY",
             "AiABKAkSFwoPQ3VycmVudExvY2F0aW9uGAMgASgJEhoKEkN1cnJlbnREZXN0",
-            "aW5hdGlvbhgEIAEoCRIQCghDYXBhY2l0eRgFIAEoBSIsChFDcmVhdGVTbG90",
-            "UmVxdWVzdBIXCg9DdXJyZW50TG9jYXRpb24YASABKAkiKQoNQ3JlYXRlUmVx",
-            "dWVzdBIYCgRzbG90GAEgASgLMgouU2xvdE1vZGVsIikKDVVwZGF0ZVJlcXVl",
-            "c3QSGAoEc2xvdBgBIAEoCzIKLlNsb3RNb2RlbCIgCg1EZWxldGVSZXF1ZXN0",
-            "Eg8KB1RydWNrSWQYASABKAkiIQoORGVsZXRlUmVzcG9uc2USDwoHc3VjY2Vz",
-            "cxgBIAEoCDLqAQoTVmVoaWNsZVByb3RvU2VydmljZRIeCgNHZXQSCy5HZXRS",
-            "ZXF1ZXN0GgouU2xvdE1vZGVsEigKCkNyZWF0ZVNsb3QSDi5DcmVhdGVSZXF1",
-            "ZXN0GgouU2xvdE1vZGVsEjgKFkNyZWF0ZVNsb3RGcm9tTG9jYXRpb24SEi5D",
-            "cmVhdGVTbG90UmVxdWVzdBoKLlNsb3RNb2RlbBIkCgZVcGRhdGUSDi5VcGRh",
-            "dGVSZXF1ZXN0GgouU2xvdE1vZGVsEikKBkRlbGV0ZRIOLkRlbGV0ZVJlcXVl",
-            "c3QaDy5EZWxldGVSZXNwb25zZUIXqgIUVmVoaWNsZXMuR3JwYy5Qcm90b3Ni",
-            "BnByb3RvMw=="));
+            "aW5hdGlvbhgEIAEoCRIQCghDYXBhY2l0eRgFIAEoBSJEChFDcmVhdGVTbG90",
+            "UmVxdWVzdBIXCg9DdXJyZW50TG9jYXRpb24YASABKAkSFgoOTmV3RGVzdGlu",
+            "YXRpb24YAiABKAkiKQoNQ3JlYXRlUmVxdWVzdBIYCgRzbG90GAEgASgLMgou",
+            "U2xvdE1vZGVsIikKDVVwZGF0ZVJlcXVlc3QSGAoEc2xvdBgBIAEoCzIKLlNs",
+            "b3RNb2RlbCIgCg1EZWxldGVSZXF1ZXN0Eg8KB1RydWNrSWQYASABKAkiIQoO",
+            "RGVsZXRlUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCCIxCh5DcmVhdGVTbG90",
+            "RnJvbUxvY2F0aW9uUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCDL/AQoTVmVo",
+            "aWNsZVByb3RvU2VydmljZRIeCgNHZXQSCy5HZXRSZXF1ZXN0GgouU2xvdE1v",
+            "ZGVsEigKCkNyZWF0ZVNsb3QSDi5DcmVhdGVSZXF1ZXN0GgouU2xvdE1vZGVs",
+            "Ek0KFkNyZWF0ZVNsb3RGcm9tTG9jYXRpb24SEi5DcmVhdGVTbG90UmVxdWVz",
+            "dBofLkNyZWF0ZVNsb3RGcm9tTG9jYXRpb25SZXNwb25zZRIkCgZVcGRhdGUS",
+            "Di5VcGRhdGVSZXF1ZXN0GgouU2xvdE1vZGVsEikKBkRlbGV0ZRIOLkRlbGV0",
+            "ZVJlcXVlc3QaDy5EZWxldGVSZXNwb25zZUIXqgIUVmVoaWNsZXMuR3JwYy5Q",
+            "cm90b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.GetRequest), global::Vehicles.Grpc.Protos.GetRequest.Parser, new[]{ "TruckId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.SlotModel), global::Vehicles.Grpc.Protos.SlotModel.Parser, new[]{ "Id", "TruckId", "CurrentLocation", "CurrentDestination", "Capacity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.CreateSlotRequest), global::Vehicles.Grpc.Protos.CreateSlotRequest.Parser, new[]{ "CurrentLocation" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.CreateSlotRequest), global::Vehicles.Grpc.Protos.CreateSlotRequest.Parser, new[]{ "CurrentLocation", "NewDestination" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.CreateRequest), global::Vehicles.Grpc.Protos.CreateRequest.Parser, new[]{ "Slot" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.UpdateRequest), global::Vehicles.Grpc.Protos.UpdateRequest.Parser, new[]{ "Slot" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.DeleteRequest), global::Vehicles.Grpc.Protos.DeleteRequest.Parser, new[]{ "TruckId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.DeleteResponse), global::Vehicles.Grpc.Protos.DeleteResponse.Parser, new[]{ "Success" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.DeleteResponse), global::Vehicles.Grpc.Protos.DeleteResponse.Parser, new[]{ "Success" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse), global::Vehicles.Grpc.Protos.CreateSlotFromLocationResponse.Parser, new[]{ "Success" }, null, null, null, null)
           }));
     }
     #endregion
@@ -616,6 +619,7 @@ namespace Vehicles.Grpc.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateSlotRequest(CreateSlotRequest other) : this() {
       currentLocation_ = other.currentLocation_;
+      newDestination_ = other.newDestination_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -637,6 +641,18 @@ namespace Vehicles.Grpc.Protos {
       }
     }
 
+    /// <summary>Field number for the "NewDestination" field.</summary>
+    public const int NewDestinationFieldNumber = 2;
+    private string newDestination_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string NewDestination {
+      get { return newDestination_; }
+      set {
+        newDestination_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -653,6 +669,7 @@ namespace Vehicles.Grpc.Protos {
         return true;
       }
       if (CurrentLocation != other.CurrentLocation) return false;
+      if (NewDestination != other.NewDestination) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -661,6 +678,7 @@ namespace Vehicles.Grpc.Protos {
     public override int GetHashCode() {
       int hash = 1;
       if (CurrentLocation.Length != 0) hash ^= CurrentLocation.GetHashCode();
+      if (NewDestination.Length != 0) hash ^= NewDestination.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -683,6 +701,10 @@ namespace Vehicles.Grpc.Protos {
         output.WriteRawTag(10);
         output.WriteString(CurrentLocation);
       }
+      if (NewDestination.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(NewDestination);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -697,6 +719,10 @@ namespace Vehicles.Grpc.Protos {
         output.WriteRawTag(10);
         output.WriteString(CurrentLocation);
       }
+      if (NewDestination.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(NewDestination);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -709,6 +735,9 @@ namespace Vehicles.Grpc.Protos {
       int size = 0;
       if (CurrentLocation.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CurrentLocation);
+      }
+      if (NewDestination.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(NewDestination);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -724,6 +753,9 @@ namespace Vehicles.Grpc.Protos {
       }
       if (other.CurrentLocation.Length != 0) {
         CurrentLocation = other.CurrentLocation;
+      }
+      if (other.NewDestination.Length != 0) {
+        NewDestination = other.NewDestination;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -744,6 +776,10 @@ namespace Vehicles.Grpc.Protos {
             CurrentLocation = input.ReadString();
             break;
           }
+          case 18: {
+            NewDestination = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -761,6 +797,10 @@ namespace Vehicles.Grpc.Protos {
             break;
           case 10: {
             CurrentLocation = input.ReadString();
+            break;
+          }
+          case 18: {
+            NewDestination = input.ReadString();
             break;
           }
         }
@@ -1493,6 +1533,195 @@ namespace Vehicles.Grpc.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(DeleteResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CreateSlotFromLocationResponse : pb::IMessage<CreateSlotFromLocationResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CreateSlotFromLocationResponse> _parser = new pb::MessageParser<CreateSlotFromLocationResponse>(() => new CreateSlotFromLocationResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CreateSlotFromLocationResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Vehicles.Grpc.Protos.VehicleReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CreateSlotFromLocationResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CreateSlotFromLocationResponse(CreateSlotFromLocationResponse other) : this() {
+      success_ = other.success_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CreateSlotFromLocationResponse Clone() {
+      return new CreateSlotFromLocationResponse(this);
+    }
+
+    /// <summary>Field number for the "success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CreateSlotFromLocationResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CreateSlotFromLocationResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Success != other.Success) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CreateSlotFromLocationResponse other) {
       if (other == null) {
         return;
       }
