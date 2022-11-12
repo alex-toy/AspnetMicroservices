@@ -35,13 +35,13 @@ namespace Discount.API.Extensions
 	                        TruckId     	    VARCHAR(24) NOT NULL,
 	                        CurrentLocation     VARCHAR(24) NOT NULL,
 	                        CurrentDestination  VARCHAR(24) NULL,
-	                        Capacity            INT NOT NULL,
+	                        Capacity            INT NOT NULL
                         );",
 
-                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('001', 'Lyon', '');",
-                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('002', 'Paris', '');",
-                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('003', 'Marseille', '');",
-                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('004', 'Lille', '');",
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('001', 'Lyon', '', 6);",
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('002', 'Paris', '', 8);",
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('003', 'Marseille', '', 6);",
+                        "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) VALUES ('004', 'Lille', '', 4);",
                     };
 
                     foreach (string query in queries)

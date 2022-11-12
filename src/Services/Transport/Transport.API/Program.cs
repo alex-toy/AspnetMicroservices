@@ -1,3 +1,4 @@
+using Transport.API.GrpcServices;
 using Transport.API.Repositories;
 using Vehicles.Grpc.Protos;
 
@@ -12,15 +13,18 @@ builder.Services.AddSwaggerGen();
 
 // General Configuration
 builder.Services.AddScoped<ITransportRepository, TransportRepository>();
-builder.Services.AddGrpcClient<VehicleProtoService.VehicleProtoServiceClient>();
+string GrpcSettingsConnectionString = builder.Configuration["GrpcSettings:SlotUrl"];
+//GrpcSettingsConnectionString = "";
+//builder.Services.AddGrpcClient<VehicleProtoService.VehicleProtoServiceClient>();
+builder.Services.AddGrpcClient<VehicleProtoService.VehicleProtoServiceClient>(o => o.Address = new Uri(GrpcSettingsConnectionString));
+builder.Services.AddScoped<VehicleGrpcService>();
 
 // Redis Configuration
 string RedisConnectionString = builder.Configuration["RedisSettings:ConnectionString"];
-RedisConnectionString = "transportdb:6379";
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = RedisConnectionString;
-    options.InstanceName = "inventorydb";
+    options.InstanceName = "transportdb";
 });
 
 

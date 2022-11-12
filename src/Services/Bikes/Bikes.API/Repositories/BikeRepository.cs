@@ -19,7 +19,7 @@ namespace Bikes.API.Repositories
             using var connection = new NpgsqlConnection(connectionString);
 
             var affected = await connection.ExecuteAsync(
-                "INSERT INTO Bike (CurrentLocation, Destination, Capacity) " +
+                "INSERT INTO Bike (BikeId, CurrentLocation, Destination, Capacity) " +
                 "VALUES (@BikeId, @CurrentLocation, @Destination, @Capacity)",
                 new
                 {

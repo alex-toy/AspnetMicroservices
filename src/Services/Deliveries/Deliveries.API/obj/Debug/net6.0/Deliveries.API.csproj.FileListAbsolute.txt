@@ -5,6 +5,7 @@ C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Deliveries.API.runtimeconfig.json
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Deliveries.API.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Deliveries.API.pdb
+C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Dapper.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
@@ -14,6 +15,7 @@ C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Npgsql.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\StackExchange.Redis.dll
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -47,5 +49,3 @@ C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\obj\
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\obj\Debug\net6.0\Deliveries.API.pdb
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\obj\Debug\net6.0\Deliveries.API.genruntimeconfig.cache
 C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\obj\Debug\net6.0\ref\Deliveries.API.dll
-C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Dapper.dll
-C:\source\Csharp\AspnetMicroservices\src\Services\Deliveries\Deliveries.API\bin\Debug\net6.0\Npgsql.dll

@@ -23,6 +23,14 @@ namespace Vehicles.API.Controllers
             return Ok(truckSlot);
         }
 
+        [HttpGet(Name = "GetAll")]
+        [ProducesResponseType(typeof(TruckSlot), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<TruckSlot>> GetAll()
+        {
+            IEnumerable<TruckSlot>? truckSlot = await _repository.GetAll();
+            return Ok(truckSlot);
+        }
+
         [HttpPost]
         [ProducesResponseType(typeof(TruckSlot), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<TruckSlot>> Create([FromBody] TruckSlot truckSlot)

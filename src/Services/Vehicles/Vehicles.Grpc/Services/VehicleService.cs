@@ -54,17 +54,17 @@ namespace Vehicles.Grpc.Services
             return response;
         }
 
-        //public override async Task<SlotModel> CreateSlot(CreateRequest request, ServerCallContext context)
-        //{
-        //    TruckSlot? Slot = _mapper.Map<TruckSlot>(request.slot);
+        public override async Task<SlotModel> CreateSlot(CreateRequest request, ServerCallContext context)
+        {
+            TruckSlot? Slot = _mapper.Map<TruckSlot>(request);
 
-        //    await _repository.Create(Slot);
+            await _repository.Create(Slot);
 
-        //    _logger.LogInformation($"Truck Slot is successfully allocated. TruckId : {Slot.TruckId}");
+            _logger.LogInformation($"Truck Slot is successfully allocated. TruckId : {Slot.TruckId}");
 
-        //    SlotModel? SlotModel = _mapper.Map<SlotModel>(Slot);
-        //    return SlotModel;
-        //}
+            SlotModel? SlotModel = _mapper.Map<SlotModel>(Slot);
+            return SlotModel;
+        }
 
         public override async Task<SlotModel> Update(UpdateRequest request, ServerCallContext context)
         {

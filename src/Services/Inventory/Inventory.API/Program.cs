@@ -13,7 +13,7 @@ builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();
 
 // Redis Configuration
 string RedisConnectionString = builder.Configuration["RedisSettings:ConnectionString"];
-RedisConnectionString = "inventorydb:6379";
+//RedisConnectionString = "inventorydb:6379";
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = RedisConnectionString;

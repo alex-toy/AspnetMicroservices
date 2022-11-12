@@ -31,11 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles.Grpc", "Services\V
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deliveries", "Deliveries", "{566B9985-7590-437D-984D-39E1639A8640}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deliveries.API", "Services\Deliveries\Deliveries.API\Deliveries.API.csproj", "{2E56810E-6E2F-4BE3-A09F-2E487EACBED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deliveries.API", "Services\Deliveries\Deliveries.API\Deliveries.API.csproj", "{2E56810E-6E2F-4BE3-A09F-2E487EACBED9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bikes", "Bikes", "{4561D59A-8746-4B27-AFEE-C17034419896}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bikes.API", "Services\Bikes\Bikes.API\Bikes.API.csproj", "{3877054A-C434-467B-9AB2-BE0152E46D97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bikes.API", "Services\Bikes\Bikes.API\Bikes.API.csproj", "{3877054A-C434-467B-9AB2-BE0152E46D97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bikes.Grpc", "Services\Bikes\Bikes.Grpc\Bikes.Grpc.csproj", "{99391BB9-F166-4022-AC07-AD6654336944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,14 @@ Global
 		{3877054A-C434-467B-9AB2-BE0152E46D97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3877054A-C434-467B-9AB2-BE0152E46D97}.Release|x64.ActiveCfg = Release|Any CPU
 		{3877054A-C434-467B-9AB2-BE0152E46D97}.Release|x64.Build.0 = Release|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Debug|x64.Build.0 = Debug|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Release|x64.ActiveCfg = Release|Any CPU
+		{99391BB9-F166-4022-AC07-AD6654336944}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +147,7 @@ Global
 		{2E56810E-6E2F-4BE3-A09F-2E487EACBED9} = {566B9985-7590-437D-984D-39E1639A8640}
 		{4561D59A-8746-4B27-AFEE-C17034419896} = {13DDFB6C-F723-442F-9383-C0245483F8BB}
 		{3877054A-C434-467B-9AB2-BE0152E46D97} = {4561D59A-8746-4B27-AFEE-C17034419896}
+		{99391BB9-F166-4022-AC07-AD6654336944} = {4561D59A-8746-4B27-AFEE-C17034419896}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C288838-487A-4CE5-B3D6-74C26880604A}

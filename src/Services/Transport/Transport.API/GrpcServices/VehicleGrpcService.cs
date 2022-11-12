@@ -1,4 +1,5 @@
-﻿using Vehicles.Grpc.Protos;
+﻿using Grpc.Net.Client;
+using Vehicles.Grpc.Protos;
 
 namespace Transport.API.GrpcServices
 {
@@ -9,9 +10,17 @@ namespace Transport.API.GrpcServices
         public VehicleGrpcService(VehicleProtoService.VehicleProtoServiceClient vehicleProtoService)
         {
             _vehicleProtoService = vehicleProtoService ?? throw new ArgumentNullException(nameof(vehicleProtoService));
+
+            var channel = GrpcChannel.ForAddress("https://localhost:7000");
+            _vehicleProtoService = new VehicleProtoService.VehicleProtoServiceClient(channel);
         }
 
-        public CreateSlotFromLocationResponse CreateSlot(string from, string to)
+        public async Task<SlotModel> Get(GetRequest request)
+        {
+            return await _vehicleProtoService.GetAsync(request);
+        }
+
+        public async Task<CreateSlotFromLocationResponse> CreateSlotFromLocation(string from, string to)
         {
             var vehicleRequest = new CreateSlotRequest
             {
@@ -19,33 +28,23 @@ namespace Transport.API.GrpcServices
                 NewDestination = to
             };
 
-            return _vehicleProtoService.CreateSlotFromLocation(vehicleRequest);
+            CreateSlotFromLocationResponse? slotResponse = await _vehicleProtoService.CreateSlotFromLocationAsync(vehicleRequest);
+
+
+            return slotResponse;
         }
 
-        //public async Task<CreateSlotFromLocationResponse> CreateSlot(string from, string to)
-        //{
-        //    var vehicleRequest = new CreateSlotRequest
-        //    {
-        //        CurrentLocation = from,
-        //        NewDestination = to
-        //    };
+        public async Task<SlotModel> Update(string from, string to)
+        {
+            var vehicleRequest = new CreateSlotRequest
+            {
+                CurrentLocation = from,
+                NewDestination = to
+            };
 
-        //    CreateSlotFromLocationResponse? temp = _vehicleProtoService.CreateSlotFromLocation(vehicleRequest);
+            SlotModel? slotModel = await _vehicleProtoService.UpdateAsync(new UpdateRequest { });
 
-        //    return await _vehicleProtoService.CreateSlotFromLocation(vehicleRequest);
-        //}
-
-        //public async Task<SlotModel> Update(string from, string to)
-        //{
-        //    var vehicleRequest = new CreateSlotRequest
-        //    {
-        //        CurrentLocation = from,
-        //        NewDestination = to
-        //    };
-
-        //    var temp = await _vehicleProtoService.Update(new UpdateRequest { });
-
-        //    return temp;
-        //}
+            return slotModel;
+        }
     }
 }

@@ -32,15 +32,16 @@ namespace Bikes.API.Extensions
 
                         @"CREATE TABLE Bike (
 	                        Id 				    SERIAL PRIMARY KEY NOT NULL,
+	                        BikeId              VARCHAR(24) NOT NULL,
 	                        CurrentLocation     VARCHAR(24) NOT NULL,
 	                        Destination         VARCHAR(24) NULL,
-	                        Capacity            INT NOT NULL,
+	                        Capacity            INT NOT NULL
                         );",
 
-                        "INSERT INTO TruckSlot (CurrentLocation, Destination, Capacity) VALUES ('Lyon', '', 5);",
-                        "INSERT INTO TruckSlot (CurrentLocation, Destination, Capacity) VALUES ('Paris', '', 4);",
-                        "INSERT INTO TruckSlot (CurrentLocation, Destination, Capacity) VALUES ('Marseille', '', 9);",
-                        "INSERT INTO TruckSlot (CurrentLocation, Destination, Capacity) VALUES ('Lille', '', 1);",
+                        "INSERT INTO Bike (BikeId, CurrentLocation, Destination, Capacity) VALUES ('001', 'Lyon', '', 5);",
+                        "INSERT INTO Bike (BikeId, CurrentLocation, Destination, Capacity) VALUES ('002', 'Paris', '', 4);",
+                        "INSERT INTO Bike (BikeId, CurrentLocation, Destination, Capacity) VALUES ('003', 'Marseille', '', 9);",
+                        "INSERT INTO Bike (BikeId, CurrentLocation, Destination, Capacity) VALUES ('004', 'Lille', '', 1);",
                     };
 
                     foreach (string query in queries)

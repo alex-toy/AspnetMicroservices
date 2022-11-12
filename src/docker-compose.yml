@@ -62,6 +62,12 @@ services:
   pgadmin:
     image: dpage/pgadmin4
 
+  vehicles.grpc:
+    image: ${DOCKER_REGISTRY-}vehiclesgrpc
+    build:
+      context: .
+      dockerfile: Services/Vehicles/Vehicles.Grpc/Dockerfile
+
   vehicles.api:
     image: ${DOCKER_REGISTRY-}vehicleapi
     build:
@@ -90,6 +96,7 @@ volumes:
   postgres_bike_data:
   pgadmin_data:
   pgadmin_bike_data:
+
 
 
 

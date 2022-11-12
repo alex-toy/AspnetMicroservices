@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vNiyIgW31DfPQnnvketKl6DLz+WmEXYWHsT8H3GdChM=",
+  "Source": "Vehicles.Grpc",
+  "BasePath": "_content/Vehicles.Grpc",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

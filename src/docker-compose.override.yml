@@ -128,6 +128,16 @@ services:
     ports:
       - "8002:80"
 
+  vehicles.grpc:
+    container_name: vehicles.grpc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=Server=vehicledb;Port=5432;Database=VehicleDb;User Id=admin;Password=admin1234;"
+    depends_on:
+      - vehicledb
+    ports:
+      - "8003:80"
+
 
   bikedb:
     container_name : bikedb

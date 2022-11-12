@@ -40,8 +40,10 @@ namespace Transport.API.Controllers
         [ProducesResponseType(typeof(TransportPlanning), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<TransportPlanning>> Create([FromBody] TransportPlanning transportPlanning)
         {
-            //await _vehicleGrpcService.CreateSlot(transportPlanning.From, transportPlanning.To);
-            _vehicleGrpcService.CreateSlot(transportPlanning.From, transportPlanning.To);
+            foreach (var item in transportPlanning.Items)
+            {
+                await _vehicleGrpcService.CreateSlotFromLocation(transportPlanning.From, transportPlanning.To);
+            }
 
             return Ok(await _repository.Update(transportPlanning));
         }
@@ -50,12 +52,6 @@ namespace Transport.API.Controllers
         [ProducesResponseType(typeof(TransportPlanning), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<TransportPlanning>> Update([FromBody] TransportPlanning TransportPlanning)
         {
-            foreach (var item in TransportPlanning.Items)
-            {
-                //var coupon = await _vehicleGrpcService.GetDiscount(item.Name);
-                //item.Quantity -= coupon.Amount;
-            }
-
             return Ok(await _repository.Update(TransportPlanning));
         }
 

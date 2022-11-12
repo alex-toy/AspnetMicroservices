@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "Bikes.Grpc.Protos";
+
+service BikeProtoService {
+	rpc Get (GetRequest) returns (BikeModel);
+	rpc CreateBike (CreateRequest) returns (BikeModel);
+	rpc AllocateBike (BikeModel) returns (BikeModel);
+	rpc Update (UpdateRequest) returns (BikeModel);
+	rpc Delete (DeleteRequest) returns (DeleteResponse);
+}
+
+message GetRequest {
+    string BikeId = 1;
+}
+
+message BikeModel {
+    int32 Id = 1;
+    string BikeId = 2;
+    string CurrentLocation = 3;
+    string CurrentDestination = 4;
+    int32 Capacity = 5;
+}
+
+message CreateRequest {
+    BikeModel bike = 1;
+}
+
+message UpdateRequest {
+	BikeModel bike = 1;
+}
+
+message DeleteRequest {
+	string BikeId = 1;
+}
+
+message DeleteResponse {
+	bool success = 1;
+}
+

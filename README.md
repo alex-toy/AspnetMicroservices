@@ -271,7 +271,7 @@ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 ```
 Install-Package Npgsql 
 Install-Package Dapper 
-Install-Package Grpc.AspNetCore 
+Install-Package Grpc.AspNetCore ##2.35.0 version
 Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection 
 Update-Package -ProjectName Vehicles.Grpc
 ```
@@ -303,6 +303,31 @@ Make sure *Transport.API* is a client of *Vehicles.Grpc*.
 ## Bikes.API with PostgreSQL
 
 - go to **pgadmin** : http://localhost:5051
-- click **Add New Server** and add *VehicleServer*, *VehicleDb*, username and password
-- go to *Vehicles.API* : http://localhost:8503/swagger/index.html
+- click **Add New Server** and add *BikeServer*, *BikeDb*, username and password
+- go to *Bikes.API* : http://localhost:8503/swagger/index.html
 
+
+## Bikes.Grpc 
+
+1. Package Manager Command
+```
+Install-Package Npgsql 
+Install-Package Dapper 
+Install-Package Grpc.AspNetCore ##2.35.0 version
+Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection 
+Update-Package -ProjectName Bikes.Grpc
+```
+
+2. Add a protobuf file
+
+<img src="/pictures/proto_file.png" title="proto file"  width="800">
+```
+
+3. Right click on *bike.proto* and set 
+
+<img src="/pictures/proto_properties.png" title="proto properties"  width="800">
+
+- *Bikes.Grpc* local : http://localhost:5133/
+- *Bikes.Grpc* compose : http://localhost:8003/swagger/index.html
+
+Grpc.Core.RpcException: Status(StatusCode="Unavailable", Detail="Error starting gRPC call. HttpRequestException: No connection could be made because the target machine actively refused it. 

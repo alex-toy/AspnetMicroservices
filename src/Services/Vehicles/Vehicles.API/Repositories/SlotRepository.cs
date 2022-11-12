@@ -20,7 +20,7 @@ namespace Vehicles.API.Repositories
 
             var affected = await connection.ExecuteAsync(
                 "INSERT INTO TruckSlot (TruckId, CurrentLocation, CurrentDestination, Capacity) " +
-                "VALUES (@TruckId, @StartDate, @EndDate)",
+                "VALUES (@TruckId, @StarCurrentLocationtDate, @CurrentDestination, @Capacity)",
                 new { 
                     TruckId = truckSlot.TruckId, 
                     CurrentLocation = truckSlot.CurrentLocation,
@@ -55,18 +55,31 @@ namespace Vehicles.API.Repositories
             using var connection = new NpgsqlConnection(connectionString);
 
             var truckSlot = await connection.QueryFirstOrDefaultAsync<TruckSlot>(
-                "SELECT * FROM TruckSlot WHERE TruckId = @truckId", 
+                "SELECT * FROM TruckSlot WHERE TruckId = @truckId",
                 new { TruckId = truckId }
             );
 
-            if (truckSlot == null) return new TruckSlot { 
-                TruckId = "", 
-                CurrentLocation = "", 
-                CurrentDestination = "", 
-                Capacity = 0 
+            if (truckSlot == null) return new TruckSlot
+            {
+                TruckId = "",
+                CurrentLocation = "",
+                CurrentDestination = "",
+                Capacity = 0
             };
 
             return truckSlot;
+        }
+
+        public async Task<IEnumerable<TruckSlot>> GetAll()
+        {
+            string connectionString = _configuration.GetValue<string>("PostgresSettings:ConnectionString");
+            using var connection = new NpgsqlConnection(connectionString);
+
+            var truckSlots = await connection.QueryAsync<TruckSlot>( "SELECT * FROM TruckSlot"  );
+
+            if (truckSlots == null) return new List<TruckSlot>();
+
+            return truckSlots;
         }
 
         public async Task<bool> Update(TruckSlot truckSlot)
