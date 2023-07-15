@@ -13,9 +13,9 @@ builder.Services.AddSwaggerGen();
 
 // General Configuration
 builder.Services.AddScoped<ITransportRepository, TransportRepository>();
+
+// Grpc Configuration
 string GrpcSettingsConnectionString = builder.Configuration["GrpcSettings:SlotUrl"];
-//GrpcSettingsConnectionString = "";
-//builder.Services.AddGrpcClient<VehicleProtoService.VehicleProtoServiceClient>();
 builder.Services.AddGrpcClient<VehicleProtoService.VehicleProtoServiceClient>(o => o.Address = new Uri(GrpcSettingsConnectionString));
 builder.Services.AddScoped<VehicleGrpcService>();
 

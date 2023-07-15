@@ -9,9 +9,9 @@ namespace Transport.API.GrpcServices
 
         public VehicleGrpcService(VehicleProtoService.VehicleProtoServiceClient vehicleProtoService)
         {
-            _vehicleProtoService = vehicleProtoService ?? throw new ArgumentNullException(nameof(vehicleProtoService));
+            //_vehicleProtoService = vehicleProtoService ?? throw new ArgumentNullException(nameof(vehicleProtoService));
 
-            var channel = GrpcChannel.ForAddress("https://localhost:7000");
+            var channel = GrpcChannel.ForAddress("http://localhost:10000");
             _vehicleProtoService = new VehicleProtoService.VehicleProtoServiceClient(channel);
         }
 

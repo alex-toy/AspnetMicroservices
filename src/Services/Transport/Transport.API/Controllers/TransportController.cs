@@ -42,7 +42,7 @@ namespace Transport.API.Controllers
         {
             foreach (var item in transportPlanning.Items)
             {
-                await _vehicleGrpcService.CreateSlotFromLocation(transportPlanning.From, transportPlanning.To);
+                //await _vehicleGrpcService.CreateSlotFromLocation(transportPlanning.From, transportPlanning.To);
             }
 
             return Ok(await _repository.Update(transportPlanning));
